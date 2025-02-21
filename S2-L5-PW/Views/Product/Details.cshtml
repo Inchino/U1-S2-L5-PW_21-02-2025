@@ -2,6 +2,22 @@
 
 <h1 class="text-center my-4">Dettagli del prodotto</h1>
 
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        @TempData["SuccessMessage"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        @TempData["ErrorMessage"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
 <div class="container">
     <div class="card">
         <div class="row no-gutters">
@@ -15,14 +31,6 @@
                     <p class="card-text">@Model.Description</p>
                 </div>
             </div>
-        </div>
-    </div>
-
-    <div class="mt-4">
-        <h4>Altre immagini:</h4>
-        <div class="d-flex flex-row">
-            <img src="@Model.AdditionalImage1" class="img-thumbnail mx-2" alt="Immagine aggiuntiva 1" width="150" />
-            <img src="@Model.AdditionalImage2" class="img-thumbnail mx-2" alt="Immagine aggiuntiva 2" width="150" />
         </div>
     </div>
 

@@ -17,8 +17,11 @@ namespace S2_L5_PW.Controllers
             if (ModelState.IsValid)
             {
                 ProductRepository.AddProduct(product);
+                TempData["SuccessMessage"] = "Prodotto aggiunto con successo!";
                 return RedirectToAction("Index", "Home");
             }
+
+            TempData["ErrorMessage"] = "Errore nell'aggiunta del prodotto.";
             return View(product);
         }
 
@@ -28,7 +31,8 @@ namespace S2_L5_PW.Controllers
             var product = ProductRepository.GetProductById(id);
             if (product == null)
             {
-                return NotFound();
+                TempData["ErrorMessage"] = "Prodotto non trovato.";
+                return RedirectToAction("Index", "Home");
             }
             return View(product);
         }
@@ -39,26 +43,38 @@ namespace S2_L5_PW.Controllers
             if (ModelState.IsValid)
             {
                 ProductRepository.UpdateProduct(product);
+                TempData["SuccessMessage"] = "Prodotto modificato con successo.";
                 return RedirectToAction("Details", new { id = product.Id });
             }
+
+            TempData["ErrorMessage"] = "Errore nella modifica del prodotto.";
             return View(product);
         }
 
         [HttpPost]
         public IActionResult Delete(int id)
         {
+            var product = ProductRepository.GetProductById(id);
+            if (product == null)
+            {
+                TempData["ErrorMessage"] = "Prodotto non trovato.";
+                return RedirectToAction("Index", "Home");
+            }
+
             ProductRepository.DeleteProduct(id);
+            TempData["SuccessMessage"] = "Prodotto eliminato con successo.";
             return RedirectToAction("Index", "Home");
         }
-
 
         public IActionResult Details(int id)
         {
             var product = ProductRepository.GetProductById(id);
             if (product == null)
             {
-                return NotFound();
+                TempData["ErrorMessage"] = "Prodotto non trovato.";
+                return RedirectToAction("Index", "Home");
             }
+
             return View(product);
         }
     }
