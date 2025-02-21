@@ -6,16 +6,10 @@ namespace S2_L5_PW.Controllers;
 
 public class HomeController : Controller
 {
-    private readonly ILogger<HomeController> _logger;
-
-    public HomeController(ILogger<HomeController> logger)
-    {
-        _logger = logger;
-    }
-
     public IActionResult Index()
     {
-        return View();
+        var products = ProductRepository.GetAllProducts();
+        return View(products);
     }
 
     public IActionResult Privacy()

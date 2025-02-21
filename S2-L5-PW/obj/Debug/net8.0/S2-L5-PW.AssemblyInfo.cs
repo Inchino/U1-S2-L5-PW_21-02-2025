@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("S2-L5-PW")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+63bdadee4563a6b2723811cc40c9b5385bdc3040")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7b0341e00b38417f3f08f63b99e6e0b771f85367")]
 [assembly: System.Reflection.AssemblyProductAttribute("S2-L5-PW")]
 [assembly: System.Reflection.AssemblyTitleAttribute("S2-L5-PW")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
