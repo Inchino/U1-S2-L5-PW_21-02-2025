@@ -26,7 +26,11 @@
         </div>
     </div>
 
-    <div class="mt-4">
-        <a href="/" class="btn btn-primary">Torna alla Home</a>
+    <div class="mt-4 d-flex">
+        <a href="/Product/Edit/@Model.Id" class="btn btn-warning me-2">Modifica</a>
+        <form asp-action="Delete" method="post" asp-route-id="@Model.Id" onsubmit="return confirm('Sei sicuro di voler eliminare questo prodotto?');">
+            <button type="submit" class="btn btn-danger me-2">Elimina</button>
+        </form>
+        <a href="/" class="btn btn-primary me-2">Torna alla Home</a>
     </div>
 </div>

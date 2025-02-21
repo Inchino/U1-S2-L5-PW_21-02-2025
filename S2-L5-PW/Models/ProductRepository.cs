@@ -1,5 +1,4 @@
 ﻿using System;
-
 using System.Collections.Generic;
 using System.Linq;
 
@@ -18,6 +17,29 @@ namespace S2_L5_PW.Models
         {
             product.Id = nextId++;
             products.Add(product);
+        }
+
+        public static void UpdateProduct(Product updatedProduct)
+        {
+            var existingProduct = products.FirstOrDefault(p => p.Id == updatedProduct.Id);
+            if (existingProduct != null)
+            {
+                existingProduct.Name = updatedProduct.Name;
+                existingProduct.Price = updatedProduct.Price;
+                existingProduct.Description = updatedProduct.Description;
+                existingProduct.CoverImage = updatedProduct.CoverImage;
+                existingProduct.AdditionalImage1 = updatedProduct.AdditionalImage1;
+                existingProduct.AdditionalImage2 = updatedProduct.AdditionalImage2;
+            }
+        }
+
+        public static void DeleteProduct(int id)
+        {
+            var product = products.FirstOrDefault(p => p.Id == id);
+            if (product != null)
+            {
+                products.Remove(product);
+            }
         }
     }
 }
